@@ -1,0 +1,10 @@
+-- Write your PostgreSQL query statement below
+SELECT name
+FROM Salesperson
+WHERE name NOT IN (
+    SELECT s.name
+    FROM SalesPerson s
+    LEFT JOIN Orders o USING(sales_id)
+    LEFT JOIN Company c USING(com_id)
+    WHERE c.name = 'RED'
+);
