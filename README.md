@@ -4,6 +4,8 @@ This repository contains my solutions to LeetCode problems.
 
 The goal is to improve my problem-solving skills, data structures knowledge, and algorithmic thinking through consistent practice.
 
+🏅 **Verification:** Official achievement badges earned throughout this track are prominently documented and stored inside the `Badges` folder.
+
 ---
 
 ## 📊 Progress & Metrics
