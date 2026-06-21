@@ -13,7 +13,7 @@ Acount AS (
 
 SELECT
     id,
-    SUM(COALESCE(req_friends, 0)) + SUM(COALESCE(acc_friends, 0)) AS num
+    COALESCE(req_friends, 0) + COALESCE(acc_friends, 0) AS num
 FROM Rcount
 FULL OUTER JOIN Acount USING(id)
 GROUP BY id

@@ -1,6 +1,7 @@
--- Write your PostgreSQL query statement below
-WITH MostRated AS (
-    SELECT u.name AS results
+-- User that rated the greatest number of movies
+WITH GreatestUser AS (
+    SELECT
+        u.name AS results
     FROM MovieRating mr
     JOIN Users u ON mr.user_id = u.user_id
     GROUP BY u.name
@@ -8,17 +9,19 @@ WITH MostRated AS (
     LIMIT 1
 ),
 
+-- Movie with highest average rating in 2020-02
 BestMovie AS (
-    SELECT m.title AS results
+    SELECT
+        m.title AS results
     FROM MovieRating mr
     JOIN Movies m ON mr.movie_id = m.movie_id
-    WHERE EXTRACT(YEAR FROM created_at) = 2020 
-        AND EXTRACT (MONTH FROM created_at) = 2
+    WHERE TO_CHAR(created_at, 'YYYY-MM') = '2020-02'
     GROUP BY m.title
-    ORDER BY AVG(rating) DESC, title ASC
+    ORDER BY AVG(rating) DESC, m.title ASC
     LIMIT 1
 )
 
-SELECT * FROM MostRated
+-- Use UNION ALL to join both CTEs
+SELECT results FROM GreatestUser
 UNION ALL
-SELECT * FROM BestMovie;
+SELECT results FROM BestMovie;

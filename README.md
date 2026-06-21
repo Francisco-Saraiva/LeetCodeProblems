@@ -6,9 +6,9 @@ The goal is to improve my problem-solving skills, data structures knowledge, and
 
 ## Progress
 
-- Total Problems Solved: 101
-- Easy: 74
-- Medium: 22
+- Total Problems Solved: 106
+- Easy: 75
+- Medium: 26
 - Hard: 5
 
 ## Languages

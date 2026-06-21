@@ -1,8 +1,8 @@
-SELECT COALESCE (
-    (SELECT DISTINCT salary AS SecondHighestSalary
+-- Write your PostgreSQL query statement below
+SELECT (  -- Outer select forces NULL in case there the Inner select is empty
+    SELECT
+        DISTINCT salary
     FROM Employee
     ORDER BY salary DESC
-    LIMIT 1 OFFSET 1),
-    NULL)
-AS SecondHighestSalary
-;
+    OFFSET 1 LIMIT 1
+) AS SecondHighestSalary
